@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export default class Transactions extends Component {
   deleteTransaction = (id) => {
-    console.log(this);
     let Transactions = [...this.props.Transactions];
     for (let i = 0; i < Transactions.length; i++) {
       if (Transactions[i].id == id) {

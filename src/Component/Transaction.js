@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import Category from "./Category";
 
 export default class Transaction extends Component {
   deleteTransaction = () => {
-    console.log(this);
     let id = this._reactInternals.key;
     this.props.deleteTransaction(id);
   };

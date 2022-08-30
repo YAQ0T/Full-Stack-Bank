@@ -37,12 +37,7 @@ export default class App extends Component {
         console.error(err);
       });
   }
-  deleteTransaction1(id) {
-    axios({
-      method: "delete",
-      url: "http://localhost:3001/Transaction/" + id,
-    });
-  }
+
   componentDidMount() {
     this.getTransactions();
   }
@@ -59,9 +54,12 @@ export default class App extends Component {
 
     this.setState({ Transactions: Transactions });
   };
-  deleteTransaction = (Transactions, id) => {
-    this.deleteTransaction1(id);
-    this.setState({ Transactions: Transactions });
+  deleteTransaction = async (Transactions, id) => {
+    await axios({
+      method: "delete",
+      url: "http://localhost:3001/Transaction/" + id,
+    });
+    this.getTransactions();
   };
   getBalance = () => {
     let balance = 0;
@@ -113,6 +111,7 @@ export default class App extends Component {
             ></Route>
             <Route
               path="/Category"
+              exact
               element={<Category Transactions={this.state.Transactions} />}
             ></Route>
           </Routes>

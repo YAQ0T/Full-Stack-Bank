@@ -41,10 +41,10 @@ app.post("/Transaction", function (req, res) {
   T.save();
   res.send("Done");
 });
-app.delete("/Transaction/:id", function (req, res) {
+app.delete("/Transaction/:id", async function (req, res) {
   id = req.params.id;
-  console.log(id);
-  Transaction.deleteMany({ id: id }, function (err) {});
 
-  res.send("Done Deleted");
+  await Transaction.deleteMany({ id: id });
+
+  res.send("Deleted");
 });

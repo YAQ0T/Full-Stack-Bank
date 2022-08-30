@@ -66,7 +66,7 @@ export default class Operations extends Component {
             <Link to="/">Deposit </Link>
           </button>
           <button id="withdraw" onClick={this.updateTransactionMinus}>
-            Withdraw
+            <Link to="/">Withdraw</Link>
           </button>
         </div>
       </div>
